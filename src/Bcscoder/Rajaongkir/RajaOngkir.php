@@ -3,7 +3,7 @@
 class RajaOngkir {
 
 	private $apikey;
-    private $base_url = "http://rajaongkir.com/api/";
+    private $base_url = "http://rajaongkir.com/api/starter/";
 
     public function __construct($api)
     {
@@ -14,21 +14,37 @@ class RajaOngkir {
 	function getCity()
 	{
         $client = new \GuzzleHttp\Client();
-	    $response = $client->get($this->base_url.'city', [
+	    // $response = $client->get($this->base_url.'city', [
+            // 'query' => [
+                // 'key' => $this->apikey,
+            // ]
+        // ]);
+            $response = $client->get($this->base_url.'city', [
             'query' => [
-                'key' => $this->apikey,
+                'key' => '5b833981e55c55135c0d4bd736af2326',
             ]
         ]);
         $body = $response->json();
+        // $body = $response;
+        // print_r($body);
         return $body;
 	}
 	 
 	function getCost($origin, $destination,$weight,$courier)
 	{
         $client = new \GuzzleHttp\Client();
+        // $response = $client->post($this->base_url.'cost', [
+            // 'body' => [
+                // 'key' => $this->apikey,
+                // 'origin' => $origin,
+                // 'destination' => $destination,
+                // 'weight' => $weight,
+                // 'courier' => $courier
+            // ]
+        // ]);
         $response = $client->post($this->base_url.'cost', [
             'body' => [
-                'key' => $this->apikey,
+                'key' => '5b833981e55c55135c0d4bd736af2326',
                 'origin' => $origin,
                 'destination' => $destination,
                 'weight' => $weight,
@@ -36,6 +52,8 @@ class RajaOngkir {
             ]
         ]);
         $body = $response->json();
+        // $body = $response;
+        // print_r($body);
         return $body;
 	}
 	 
