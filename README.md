@@ -8,7 +8,7 @@ via composer
 
 ```
 "require-dev": {
-    "bcscoder/rajaongkir": "dev-master"
+    "achmadi/rajaongkir": "dev-master"
 }
 ```
 
